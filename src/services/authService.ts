@@ -1,8 +1,10 @@
 import { CookieOptions, Response } from "express";
-import { comparePassword } from "../../helpers/bcrypt";
+import { comparePassword, generateUserPassword } from "../../helpers/bcrypt";
 import { generateAuthToken } from "../../helpers/jwt";
 import Users from "../models/user";
 import { handleBadRequest } from "../../utils/ErrorHandle";
+import { IUser } from "../interface/IUser";
+import user from "../models/user";
 
 const cookieConfig: CookieOptions = {
   httpOnly: true, // הגנה מפני XSS - הקוקי לא נגיש דרך JavaScript בצד הלקוח
@@ -15,7 +17,7 @@ interface userDTO {
 }
 interface LoginDTO {
   _id: string;
-  role: boolean;
+  role: string;
 }
 
 const login = async (user: userDTO, res: Response) => {
