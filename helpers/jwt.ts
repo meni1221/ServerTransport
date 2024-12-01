@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
 import { Request, Response, NextFunction } from "express";
-import User, { IUser } from "../src/models/user";
+import User from "../src/models/user";
 
 // Define interface for token payload
 interface TokenPayload {
@@ -12,8 +12,8 @@ interface TokenPayload {
 const SECRET_KEY = process.env.JWT_SECRET || "fallback_secret_key";
 
 // Generate token
-const generateAuthToken = (user: { _id: any; isAdmin: boolean }): string => {
-  return jwt.sign({ id: user._id, isAdmin: user.isAdmin }, SECRET_KEY, {
+const generateAuthToken = (user: { _id: any; role: string }): string => {
+  return jwt.sign({ id: user._id, isAdmin: user.role }, SECRET_KEY, {
     expiresIn: "1h",
   });
 };
