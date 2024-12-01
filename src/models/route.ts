@@ -1,6 +1,6 @@
 import mongoose, { Document, Schema } from "mongoose";
-import { IBus } from "../interface/IBus";
 import { IRoute } from "../interface/IRoute";
+import ScheduleSchema from "../models/schedule"
 
 const RouteSchema: Schema = new Schema(
   {
@@ -21,15 +21,7 @@ const RouteSchema: Schema = new Schema(
       required: true,
     },
     schedule: {
-      type: [Object],
-      required: true,
-    },
-    departureTime: {
-      type: String,
-      required: true,
-    },
-    arrivalTime: {
-      type: String ,
+      type: [ScheduleSchema],
       required: true,
     },
     station: {
