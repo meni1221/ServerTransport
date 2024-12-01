@@ -10,7 +10,7 @@ import { handleError } from "../../utils/ErrorHandle";
 
 const router: IRouter = express.Router();
 
-router.get("/", async (req: Request, res: Response): Promise<void> => {
+router.get("/allusres", async (req: Request, res: Response): Promise<void> => {
     try {
         const users = await getAllUsers();
         res.json(users);
