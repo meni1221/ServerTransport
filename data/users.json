@@ -3,7 +3,7 @@
     "name": "Meni Cohen",
     "email": "MeniCohen@example.com",
     "password": "1234",
-    "role": "admin"
+    "role": "driver"
   },
   {
     "name": "Meni Levi",
@@ -15,6 +15,6 @@
     "name": "Rafael Cohen",
     "email": "rafaelcohen@example.com",
     "password": "1234",
-    "role": "driver"
+    "role": "passenger"
   }
 ]
