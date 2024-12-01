@@ -22,14 +22,15 @@ const userSchema: Schema = new Schema(
     role: {
       type: String,
       required: true,
+      enum:["admin","driver","passenger"]
     },
     createdAt: {
       type: Date,
-      required: true,
+      required: false,
     },
     updatedAd: {
       type: Date,
-      required: true,
+      required: false,
     },
   },
 
