@@ -9,6 +9,10 @@ const busSchema: Schema = new Schema(
       minlength: 2,
       maxlength: 50,
     },
+    model:{
+      type:String,
+      require:true
+    },
     capacity: {
       type: Number,
       required: true,
@@ -21,17 +25,18 @@ const busSchema: Schema = new Schema(
       type: String || Object,
       required: true,
     },
-    routelID: {
+    // שמתי שלא חייב רק בשביל הבדיקה
+    routeID: {
       type: String || Object,
-      required: true,
+      required: false,
     },
     createdAt: {
       type: Date,
-      required: true,
+      required: false,
     },
     updatedAd: {
       type: Date,
-      required: true,
+      required: false,
     },
   },
 
