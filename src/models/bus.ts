@@ -40,4 +40,4 @@ const busSchema: Schema = new Schema(
   }
 );
 
-export default mongoose.model<IBus>("User", userSchema);
+export default mongoose.model<IBus>("Bos", busSchema);
