@@ -2,8 +2,18 @@ import express, { IRouter, Request, Response } from "express";
 import { login, logout } from "../services/authService";
 import { handleError } from "../../utils/ErrorHandle";
 import { verifyUserToRef } from "../../helpers/jwt";
+import { addUser } from "../services/dataService";
 
 const router: IRouter = express.Router();
+
+router.post('/registr', async (req: Request, res: Response): Promise<void> => {
+  try {
+    const user = await addUser(req.body);
+    res.status(201).json(user);
+  } catch (error: any) {
+    handleError(res, error.status || 404, error.message);
+  }
+});
 
 router.post("/login", async (req: Request, res: Response): Promise<void> => {
   try {
